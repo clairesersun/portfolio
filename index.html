@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claire Sersun - UI/UX Designer & Frontend Developer focused on IA, Accessibility, and Intuitive Digital Experiences">
+    <title>Claire Sersun | UI/UX Designer & Frontend Developer</title>
+    <style>
+        /* ===== CSS RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #e0e0e0;
+            background-color: #0a0a0a;
+        }
+
+        ::selection {
+            background-color: #ffffff;
+            color: #0a0a0a;
+        }
+
+        /* ===== SKIP NAVIGATION ===== */
+        .skip-link {
+            position: absolute;
+            top: -2.5rem;
+            left: 0;
+            background: #ffffff;
+            color: #0a0a0a;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            z-index: 2000;
+            border: 0.125rem solid #0a0a0a;
+        }
+
+        .skip-link:focus {
+            top: 0.5rem;
+            left: 0.5rem;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5 {
+            line-height: 1.2;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            font-weight: 200;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+        }
+
+        h4 {
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            margin-bottom: 1.5rem;
+            color: #808080;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        h5 {
+            font-size: 0.8125rem;
+            color: #767676;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        /* ===== NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(1.25rem);
+            border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 87.5rem;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        nav .logo {
+            font-weight: 400;
+            font-size: 1.125rem;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            padding: 0.5rem;
+            display: inline-block;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #b0b0b0;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            padding: 0.75rem 1rem;
+            font-size: 0.9375rem;
+            letter-spacing: 0.02em;
+            position: relative;
+            display: inline-block;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #ffffff;
+            outline: none;
+        }
+
+        nav a[aria-current="true"] {
+            color: #ffffff;
+        }
+
+        nav a[aria-current="true"]::after {
+            content: '';
+            position: absolute;
+            bottom: 0.5rem;
+            left: 1rem;
+            right: 1rem;
+            height: 0.125rem;
+            background-color: #ffffff;
+        }
+
+        nav a:focus-visible {
+            outline: 0.125rem solid #ffffff;
+            outline-offset: 0.25rem;
+        }
+
+        nav a:focus-visible[aria-current="true"]::after {
+            bottom: 0.375rem;
+        }
+
+        /* ===== CONTAINER & SECTIONS ===== */
+        .container {
+            max-width: 87.5rem;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        section {
+            padding: 8rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            scroll-margin-top: 5rem;
+        }
+
+        section:focus {
+            outline: none;
+        }
+
+        /* ===== HERO SECTION ===== */
+        #hero {
+            padding-top: 12rem;
+            padding-bottom: 12rem;
+            border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-content h1 {
+            margin-bottom: 2rem;
+        }
+
+        .tagline {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: #b0b0b0;
+            margin-bottom: 0;
+            line-height: 1.6;
+            max-width: 50ch;
+            font-weight: 300;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #666666;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 0.0625rem;
+            height: 3rem;
+            background: linear-gradient(to bottom, #666666, transparent);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-0.625rem); }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            background-color: #0a0a0a;
+            border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.05);
+        }
+
+        #about .container {
+            max-width: 56.25rem;
+        }
+
+        /* ===== CASE STUDIES SECTION ===== */
+        #work {
+            background-color: #0a0a0a;
+            border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.05);
+            min-height: auto;
+            padding: 8rem 0;
+        }
+
+        .case-study {
+            margin-bottom: 10rem;
+        }
+
+        .case-study:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-study-header h3 {
+            margin-bottom: 1rem;
+        }
+
+        .case-study-subtitle {
+            color: #808080;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-weight: 300;
+            max-width: 60ch;
+        }
+
+        .case-study-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.8125rem;
+            color: #767676;
+            padding: 0.5rem 1rem;
+            border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-study-section {
+            display: grid;
+            grid-template-columns: 11.25rem 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .case-study-section h4 {
+            position: sticky;
+            top: 7.5rem;
+            margin-bottom: 0;
+        }
+
+        .section-content ul,
+        .section-content ol {
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .section-content li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 1rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            font-size: 1.0625rem;
+        }
+
+        .section-content ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #767676;
+            font-weight: 400;
+        }
+
+        .section-content ol {
+            counter-reset: step-counter;
+        }
+
+        .section-content ol li {
+            counter-increment: step-counter;
+        }
+
+        .section-content ol li::before {
+            content: counter(step-counter) ".";
+            position: absolute;
+            left: 0;
+            color: #767676;
+            font-weight: 400;
+        }
+
+        .key-innovation {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-left: 0.125rem solid rgba(255, 255, 255, 0.15);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .key-innovation h5 {
+            margin-bottom: 0.75rem;
+        }
+
+        .key-innovation p {
+            margin-bottom: 0;
+            color: #e0e0e0;
+            font-size: 1.0625rem;
+        }
+
+        .results-section {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+            gap: 3rem;
+        }
+
+        .result-column h5 {
+            font-size: 0.8125rem;
+            color: #767676;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-column ul {
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .result-column li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 1rem;
+            color: #e0e0e0;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .result-column li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+            font-size: 0.875rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            background-color: #0a0a0a;
+            padding: 8rem 0;
+            min-height: 60vh;
+        }
+
+        #contact h2 {
+            color: #ffffff;
+            margin-bottom: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+            gap: 3rem;
+            max-width: 50rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-label {
+            font-size: 0.8125rem;
+            color: #767676;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .contact-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            font-weight: 300;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            min-height: 3rem;
+        }
+
+        .contact-link:hover,
+        .contact-link:focus {
+            color: #ffffff;
+            outline: none;
+        }
+
+        .contact-link:focus-visible {
+            outline: 0.125rem solid #ffffff;
+            outline-offset: 0.25rem;
+        }
+
+        /* External link icon */
+        .contact-link[target="_blank"]::after {
+            content: "↗";
+            font-size: 1rem;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-link[target="_blank"]:hover::after {
+            opacity: 1;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 64rem) {
+            nav .container {
+                padding: 0 2rem;
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+
+            section {
+                padding: 6rem 0;
+            }
+
+            .case-study {
+                margin-bottom: 8rem;
+            }
+
+            .case-study-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .case-study-section h4 {
+                position: static;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 48rem) {
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.875rem;
+                padding: 0.75rem 0.75rem;
+                min-height: 3rem;
+            }
+
+            nav a[aria-current="true"]::after {
+                left: 0.75rem;
+                right: 0.75rem;
+            }
+
+            section {
+                padding: 5rem 0;
+                min-height: auto;
+            }
+
+            #hero {
+                padding-top: 10rem;
+                padding-bottom: 8rem;
+            }
+
+            .case-study {
+                margin-bottom: 6rem;
+            }
+
+            .results-section {
+                padding: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .key-innovation {
+                padding: 1.25rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 30rem) {
+            nav .container {
+                padding: 0 1.5rem;
+            }
+
+            nav .logo {
+                font-size: 1rem;
+                padding: 0.5rem 0.25rem;
+            }
+
+            nav ul {
+                gap: 0.25rem;
+            }
+
+            nav a {
+                font-size: 0.8125rem;
+                padding: 0.75rem 0.5rem;
+                min-height: 3rem;
+            }
+
+            nav a[aria-current="true"]::after {
+                left: 0.5rem;
+                right: 0.5rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            h2 {
+                margin-bottom: 2rem;
+            }
+
+            .section-content li {
+                padding-left: 1.25rem;
+                font-size: 1rem;
+            }
+
+            .contact-link {
+                font-size: 1.125rem;
+            }
+
+            .case-study-tags {
+                gap: 0.5rem;
+            }
+
+            .tag {
+                font-size: 0.75rem;
+                padding: 0.375rem 0.75rem;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+        :focus-visible {
+            outline: 0.125rem solid #ffffff;
+            outline-offset: 0.25rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ===== HIGH CONTRAST MODE SUPPORT ===== */
+        @media (prefers-contrast: high) {
+            body {
+                background-color: #000000;
+                color: #ffffff;
+            }
+
+            nav {
+                background-color: #000000;
+                border-bottom: 0.125rem solid #ffffff;
+            }
+
+            .results-section {
+                border: 0.125rem solid #ffffff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== SKIP NAVIGATION ===== -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- ===== NAVIGATION ===== -->
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="container">
+                <a href="#hero" class="logo" aria-label="Claire Sersun - Home">CLAIRE SERSUN</a>
+                <ul>
+                    <li><a href="#about" data-section="about">About</a></li>
+                    <li><a href="#work" data-section="work">Case Studies</a></li>
+                    <li><a href="#contact" data-section="contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main">
+        <!-- ===== HERO SECTION ===== -->
+        <section id="hero" aria-labelledby="hero-heading">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-heading">Claire Sersun</h1>
+                    <p class="tagline">UI/UX Designer & Frontend Developer focused on IA, Accessibility, and Intuitive Digital Experiences.</p>
+                </div>
+            </div>
+            <div class="scroll-indicator" aria-hidden="true">
+                Scroll
+            </div>
+        </section>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div>
+                    <h2 id="about-heading">About</h2>
+                    <p>Claire Sersun is a UI/UX designer and frontend developer who believes accessibility isn't optional; it's fundamental to good design. Specializing in strategic information architecture and inclusive user experiences, she transforms complex systems into intuitive, accessible interfaces that work for everyone.</p>
+                    <p>From conducting screenreader testing to implementing WCAG-compliant components in Vue, she bridges the gap between design vision and technical reality, ensuring every user, regardless of ability, can accomplish their goals efficiently. Her work emphasizes human-centered design, accessibility, and scalable front-end solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CASE STUDIES SECTION ===== -->
+        <section id="work" aria-labelledby="work-heading">
+            <div class="container">
+                <h2 id="work-heading">Case Studies</h2>
+
+                <!-- Case Study 1: Redesign Settings -->
+                <article class="case-study" aria-labelledby="case-study-1-title">
+                    <div class="case-study-header">
+                        <h3 id="case-study-1-title">Redesign Settings: IA + Accessibility Focus</h3>
+                        <p class="case-study-subtitle">Redesigning settings to reduce cognitive load and improve accessibility</p>
+                        <div class="case-study-tags">
+                            <span class="tag">Information Architecture</span>
+                            <span class="tag">Accessibility</span>
+                            <span class="tag">Vue/SASS</span>
+                            <span class="tag">User Research</span>
+                        </div>
+                    </div>
+
+                    <div class="case-study-content">
+                        <div class="case-study-section">
+                            <h4>Problem</h4>
+                            <div class="section-content">
+                                <ul>
+                                    <li>User settings page was a single row with no organization</li>
+                                    <li>Users struggled to find settings; conflicting internal opinions existed on where info should live</li>
+                                    <li>Cognitive overload due to too much information on one page</li>
+                                    <li>Users had to reload page to change settings for a different organization</li>
+                                    <li>Developer-driven design with little human-centered thought</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Research</h4>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Analyzed Reddit discussions on best practices for settings organization and structure</li>
+                                    <li>Reviewed internal support tickets and gathered direct user feedback to identify pain points</li>
+                                    <li>Conducted surveys and interviewed Solutions Engineers who work directly with users</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Approach</h4>
+                            <div class="section-content">
+                                <div class="key-innovation">
+                                    <h5>Key Innovation</h5>
+                                    <p>Implemented a progressive disclosure pattern ("black box" concept) specifically designed for neurodivergent users. Category names remain visible while settings reveal on-demand, reducing cognitive overload while maintaining context and discoverability.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Process</h4>
+                            <div class="section-content">
+                                <ol>
+                                    <li>Analyzed current API response and compared to competitor implementations</li>
+                                    <li>Mapped ideas on a whiteboard and grouped settings into logical categories</li>
+                                    <li>Iterated on concise category names for clarity and scannability</li>
+                                    <li>Created wireframes progressing from whiteboard sketches to notebook iterations to Sketch high-fidelity designs</li>
+                                    <li>Built interactive prototypes to validate information architecture and interaction patterns</li>
+                                    <li>Conducted accessibility testing including color contrast checks, screenreader testing with VoiceOver, and validation with AxeDev Tools</li>
+                                    <li>Made strategic technical decisions including component architecture in Vue, state management for settings persistence without page reloads, and SASS organizational patterns for maintainable, scalable styles</li>
+                                    <li>Implemented frontend in Vue/SASS with full accessibility attributes</li>
+                                    <li>Tested in production environment via feature flags with internal users before wider rollout</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Results</h4>
+                            <div class="section-content">
+                                <div class="results-section">
+                                    <div class="results-grid">
+                                        <div class="result-column">
+                                            <h5>Impact</h5>
+                                            <ul>
+                                                <li>Redesigned information architecture reduced user confusion and support burden; users could now locate settings in a single organized view instead of scanning unstructured lists</li>
+                                                <li>Achieved comprehensive accessibility compliance through iterative testing with screenreaders and AxeDev Tools, ensuring settings were fully navigable for users with visual, motor, and cognitive disabilities</li>
+                                                <li>Significantly reduced cognitive load by implementing progressive disclosure, allowing users to focus on relevant settings without overwhelming information</li>
+                                                <li>Received positive feedback from users and internal teams; fewer admin cleanup tasks needed</li>
+                                                <li>Successfully addressed legacy technical debt and usability issues</li>
+                                            </ul>
+                                        </div>
+                                        <div class="result-column">
+                                            <h5>Tools & Methods</h5>
+                                            <ul>
+                                                <li>Whiteboard ideation and pen & paper sketching</li>
+                                                <li>Sketch for high-fidelity wireframes and prototypes</li>
+                                                <li>AxeDev Tools and VoiceOver screenreader testing</li>
+                                                <li>Vue/SASS for component implementation</li>
+                                                <li>Feature flags for safe production testing</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Case Study 2: Messaging Modernization -->
+                <article class="case-study" aria-labelledby="case-study-2-title">
+                    <div class="case-study-header">
+                        <h3 id="case-study-2-title">Messaging Modernization</h3>
+                        <p class="case-study-subtitle">Transforming a cluttered chat system into a streamlined, accessible experience</p>
+                        <div class="case-study-tags">
+                            <span class="tag">UX Design</span>
+                            <span class="tag">Accessibility</span>
+                            <span class="tag">Vue/SASS</span>
+                            <span class="tag">Storybook</span>
+                        </div>
+                    </div>
+
+                    <div class="case-study-content">
+                        <div class="case-study-section">
+                            <h4>Problem</h4>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Users were not using threads effectively, resulting in lost context within the application</li>
+                                    <li>Messaging system lacked modern chat features expected by users familiar with contemporary platforms</li>
+                                    <li>Confusing layouts, missing features, and inconsistent UX patterns created friction</li>
+                                    <li>Existing design did not align with the upcoming application-wide redesign</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Research</h4>
+                            <div class="section-content">
+                                <ul>
+                                    <li>Conducted in-depth interviews with Solutions Engineers who support users daily</li>
+                                    <li>Analyzed customer feedback and patterns from support ticket submissions</li>
+                                    <li>Performed comparative analysis of competitor chat systems including Slack, Discord, and Microsoft Teams</li>
+                                    <li>Facilitated user discussions and distributed surveys to understand feature expectations</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Approach</h4>
+                            <div class="section-content">
+                                <div class="key-innovation">
+                                    <h5>Key Innovation</h5>
+                                    <p>Conducted comparative analysis of modern chat systems (Slack, Discord, Teams) to identify user expectations and established patterns, then strategically adapted these patterns to fit existing technical constraints while maintaining comprehensive accessibility standards throughout.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Process</h4>
+                            <div class="section-content">
+                                <ol>
+                                    <li>Created wireframes progressing from initial whiteboard sketches to refined Sketch high-fidelity designs</li>
+                                    <li>Designed and integrated modern features including message quoting, threaded replies, context blocks, and simplified navigation menus</li>
+                                    <li>Conducted thorough accessibility validation including color accessibility checks, comprehensive screenreader testing, and AxeDev Tools auditing</li>
+                                    <li>Built and documented reusable message components in Storybook, establishing patterns for quotes, replies, and thread contexts that could scale across the application while maintaining accessibility attributes</li>
+                                    <li>Implemented frontend components in Vue/SASS with full ARIA support and semantic HTML</li>
+                                    <li>Deployed via feature flags for controlled internal testing before production release</li>
+                                    <li>Made iterative refinements based on testing feedback, addressing edge cases for sizing, long text handling, system messages, and screenreader announcement patterns</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Results</h4>
+                            <div class="section-content">
+                                <div class="results-section">
+                                    <div class="results-grid">
+                                        <div class="result-column">
+                                            <h5>Impact</h5>
+                                            <ul>
+                                                <li>Messaging interface became significantly more organized with clear visual hierarchy and intuitive interaction patterns</li>
+                                                <li>Users gained efficient ways to quote messages, reply in context, and access conversation history, reducing confusion and improving productivity</li>
+                                                <li>Reduced administrative overhead by minimizing cleanup tasks and support requests related to messaging</li>
+                                                <li>Successfully aligned messaging experience with the upcoming application redesign, creating visual and interaction consistency</li>
+                                                <li>Improved accessibility compliance and better matched user expectations established by modern communication platforms</li>
+                                            </ul>
+                                        </div>
+                                        <div class="result-column">
+                                            <h5>Tools & Methods</h5>
+                                            <ul>
+                                                <li>Whiteboard ideation and collaborative sketching</li>
+                                                <li>Sketch for high-fidelity design and prototyping</li>
+                                                <li>AxeDev Tools and VoiceOver screenreader testing</li>
+                                                <li>Vue/SASS for component implementation</li>
+                                                <li>Storybook for component documentation and design system</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Get In Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:claire.sersun@gmail.com" class="contact-link" aria-label="Email Claire Sersun">claire.sersun@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">LinkedIn</span>
+                        <a href="https://linkedin.com/in/clairesersun" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Claire Sersun's LinkedIn profile (opens in new tab)">linkedin.com/in/clairesersun</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Active navigation highlighting based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[data-section]');
+
+        // Make sections focusable for skip links
+        sections.forEach(section => {
+            section.setAttribute('tabindex', '-1');
+        });
+
+        function updateActiveNav() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.removeAttribute('aria-current');
+                if (link.getAttribute('data-section') === current) {
+                    link.setAttribute('aria-current', 'true');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+    </script>
+</body>
+</html>
