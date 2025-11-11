@@ -340,6 +340,13 @@
             list-style: none;
         }
 
+        .section-content p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            font-size: 1.0625rem;
+            margin-bottom: 0;
+        }
+
         .section-content li {
             padding-left: 1.5rem;
             position: relative;
@@ -707,8 +714,8 @@
             <div class="container">
                 <div>
                     <h2 id="about-heading">About</h2>
-                    <p>Claire Sersun is a UI/UX designer and frontend developer who believes accessibility isn't optional; it's fundamental to good design. Specializing in strategic information architecture and inclusive user experiences, she transforms complex systems into intuitive, accessible interfaces that work for everyone.</p>
-                    <p>From conducting screenreader testing to implementing WCAG-compliant components in Vue, she bridges the gap between design vision and technical reality, ensuring every user, regardless of ability, can accomplish their goals efficiently. Her work emphasizes human-centered design, accessibility, and scalable front-end solutions.</p>
+                    <p>I'm a UI/UX designer and frontend developer who believes accessibility isn't optional; it's fundamental to good design. I specialize in strategic information architecture and inclusive user experiences, transforming complex systems into intuitive, accessible interfaces that work for everyone.</p>
+                    <p>From conducting screenreader testing to implementing WCAG-compliant components in Vue, I bridge the gap between design vision and technical reality. My work emphasizes human-centered design, accessibility, and scalable front-end solutions that ensure every user, regardless of ability, can accomplish their goals efficiently.</p>
                 </div>
             </div>
         </section>
@@ -733,14 +740,20 @@
 
                     <div class="case-study-content">
                         <div class="case-study-section">
-                            <h4>Problem</h4>
+                            <h4>Overview</h4>
+                            <div class="section-content">
+                                <p>The user settings and profile pages were developer-designed with no clear structure or logic. Users struggled to find where to change information, settings were not grouped, and the cognitive load was high. My goal was to redesign the information architecture and accessibility while keeping the backend untouched.</p>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Challenges</h4>
                             <div class="section-content">
                                 <ul>
-                                    <li>User settings page was a single row with no organization</li>
-                                    <li>Users struggled to find settings; conflicting internal opinions existed on where info should live</li>
-                                    <li>Cognitive overload due to too much information on one page</li>
-                                    <li>Users had to reload page to change settings for a different organization</li>
-                                    <li>Developer-driven design with little human-centered thought</li>
+                                    <li>Disorganized and ungrouped settings made it difficult for users to locate options</li>
+                                    <li>Accessibility features were unclear and buried</li>
+                                    <li>Users had to reload the page to switch between organizations, causing confusion</li>
+                                    <li>Ten years of conflicting opinions and ad-hoc feature additions created complexity</li>
                                 </ul>
                             </div>
                         </div>
@@ -748,11 +761,7 @@
                         <div class="case-study-section">
                             <h4>Research</h4>
                             <div class="section-content">
-                                <ul>
-                                    <li>Analyzed Reddit discussions on best practices for settings organization and structure</li>
-                                    <li>Reviewed internal support tickets and gathered direct user feedback to identify pain points</li>
-                                    <li>Conducted surveys and interviewed Solutions Engineers who work directly with users</li>
-                                </ul>
+                                <p>I gathered user feedback from Reddit discussions, internal tickets, Solutions Engineers, and surveys. Key findings showed users could not find settings easily, the grouping caused cognitive overload, and organization-specific reloads were frustrating.</p>
                             </div>
                         </div>
 
@@ -761,7 +770,7 @@
                             <div class="section-content">
                                 <div class="key-innovation">
                                     <h5>Key Innovation</h5>
-                                    <p>Implemented a progressive disclosure pattern ("black box" concept) specifically designed for neurodivergent users. Category names remain visible while settings reveal on-demand, reducing cognitive overload while maintaining context and discoverability.</p>
+                                    <p>Applied cognitive accessibility concepts like the "black box" idea so only categories were visible at first, reducing on-screen clutter. This progressive disclosure pattern specifically helps neurodivergent users by maintaining context while minimizing cognitive overload.</p>
                                 </div>
                             </div>
                         </div>
@@ -770,15 +779,14 @@
                             <h4>Process</h4>
                             <div class="section-content">
                                 <ol>
-                                    <li>Analyzed current API response and compared to competitor implementations</li>
-                                    <li>Mapped ideas on a whiteboard and grouped settings into logical categories</li>
-                                    <li>Iterated on concise category names for clarity and scannability</li>
-                                    <li>Created wireframes progressing from whiteboard sketches to notebook iterations to Sketch high-fidelity designs</li>
-                                    <li>Built interactive prototypes to validate information architecture and interaction patterns</li>
-                                    <li>Conducted accessibility testing including color contrast checks, screenreader testing with VoiceOver, and validation with AxeDev Tools</li>
-                                    <li>Made strategic technical decisions including component architecture in Vue, state management for settings persistence without page reloads, and SASS organizational patterns for maintainable, scalable styles</li>
-                                    <li>Implemented frontend in Vue/SASS with full accessibility attributes</li>
-                                    <li>Tested in production environment via feature flags with internal users before wider rollout</li>
+                                    <li>Analyzed the existing API response and compared it with competitors to find structural and naming patterns</li>
+                                    <li>Brainstormed and grouped settings on a whiteboard, refining category names over several iterations to one-word labels</li>
+                                    <li>Created wireframes on paper, then high-fidelity designs in Sketch, followed by interactive prototypes</li>
+                                    <li>Validated accessibility with AxeDev Tools and screen readers to ensure color contrast and proper code structure</li>
+                                    <li>Combined profile and settings pages into a unified interface while maintaining backend logic</li>
+                                    <li>Coded the redesigned structure with accessible patterns in Vue/SASS</li>
+                                    <li>Used production testing with feature flags to identify bugs and refine user flows</li>
+                                    <li>Added missing settings and improved post-release accessibility based on user tickets</li>
                                 </ol>
                             </div>
                         </div>
@@ -791,21 +799,22 @@
                                         <div class="result-column">
                                             <h5>Impact</h5>
                                             <ul>
-                                                <li>Redesigned information architecture reduced user confusion and support burden; users could now locate settings in a single organized view instead of scanning unstructured lists</li>
-                                                <li>Achieved comprehensive accessibility compliance through iterative testing with screenreaders and AxeDev Tools, ensuring settings were fully navigable for users with visual, motor, and cognitive disabilities</li>
-                                                <li>Significantly reduced cognitive load by implementing progressive disclosure, allowing users to focus on relevant settings without overwhelming information</li>
-                                                <li>Received positive feedback from users and internal teams; fewer admin cleanup tasks needed</li>
-                                                <li>Successfully addressed legacy technical debt and usability issues</li>
+                                                <li>Users could locate and understand accessibility settings easily in a single organized view</li>
+                                                <li>Reduced confusion and cognitive overload through clear categorization and progressive disclosure</li>
+                                                <li>Improved accessibility awareness and adoption across the user base</li>
+                                                <li>Received praise from users and internal teams for clarity and usability</li>
+                                                <li>Successfully addressed ten years of legacy technical debt and conflicting design decisions</li>
                                             </ul>
                                         </div>
                                         <div class="result-column">
                                             <h5>Tools & Methods</h5>
                                             <ul>
-                                                <li>Whiteboard ideation and pen & paper sketching</li>
                                                 <li>Sketch for high-fidelity wireframes and prototypes</li>
-                                                <li>AxeDev Tools and VoiceOver screenreader testing</li>
+                                                <li>Whiteboard ideation and pen & paper sketching</li>
+                                                <li>AxeDev Tools and macOS screen readers for accessibility testing</li>
                                                 <li>Vue/SASS for component implementation</li>
                                                 <li>Feature flags for safe production testing</li>
+                                                <li>Production analytics for validation</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -830,13 +839,20 @@
 
                     <div class="case-study-content">
                         <div class="case-study-section">
-                            <h4>Problem</h4>
+                            <h4>Overview</h4>
+                            <div class="section-content">
+                                <p>The existing messaging room lacked modern chat functionality and clarity. Users were losing context, threads were hard to find, and the system design did not align with upcoming app redesigns. I redesigned the experience to create a more intuitive, organized, and accessible messaging interface.</p>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h4>Challenges</h4>
                             <div class="section-content">
                                 <ul>
-                                    <li>Users were not using threads effectively, resulting in lost context within the application</li>
-                                    <li>Messaging system lacked modern chat features expected by users familiar with contemporary platforms</li>
-                                    <li>Confusing layouts, missing features, and inconsistent UX patterns created friction</li>
-                                    <li>Existing design did not align with the upcoming application-wide redesign</li>
+                                    <li>Users did not use or understand threads</li>
+                                    <li>Lost context when navigating through cockpit views</li>
+                                    <li>Lack of modern messaging features such as quoting and replies</li>
+                                    <li>The interface did not align with the new design system</li>
                                 </ul>
                             </div>
                         </div>
@@ -844,12 +860,7 @@
                         <div class="case-study-section">
                             <h4>Research</h4>
                             <div class="section-content">
-                                <ul>
-                                    <li>Conducted in-depth interviews with Solutions Engineers who support users daily</li>
-                                    <li>Analyzed customer feedback and patterns from support ticket submissions</li>
-                                    <li>Performed comparative analysis of competitor chat systems including Slack, Discord, and Microsoft Teams</li>
-                                    <li>Facilitated user discussions and distributed surveys to understand feature expectations</li>
-                                </ul>
+                                <p>I interviewed Solutions Engineers, gathered customer feedback, analyzed competitor designs and APIs, and studied discussions on what users valued in chat tools.</p>
                             </div>
                         </div>
 
@@ -867,13 +878,16 @@
                             <h4>Process</h4>
                             <div class="section-content">
                                 <ol>
-                                    <li>Created wireframes progressing from initial whiteboard sketches to refined Sketch high-fidelity designs</li>
-                                    <li>Designed and integrated modern features including message quoting, threaded replies, context blocks, and simplified navigation menus</li>
-                                    <li>Conducted thorough accessibility validation including color accessibility checks, comprehensive screenreader testing, and AxeDev Tools auditing</li>
-                                    <li>Built and documented reusable message components in Storybook, establishing patterns for quotes, replies, and thread contexts that could scale across the application while maintaining accessibility attributes</li>
+                                    <li>Created sketches and whiteboard wireframes to explore layout and context flow</li>
+                                    <li>Designed high-fidelity screens in Sketch to visualize quoting, replies, and side-by-side threads</li>
+                                    <li>Simplified overflow and action menus for clearer user interactions</li>
+                                    <li>Added contextual information blocks to maintain message relevance</li>
+                                    <li>Built accessibility checks using AxeDev Tools and screen readers</li>
+                                    <li>Rebuilt and documented UI code in Storybook to support scalability and easier debugging</li>
                                     <li>Implemented frontend components in Vue/SASS with full ARIA support and semantic HTML</li>
-                                    <li>Deployed via feature flags for controlled internal testing before production release</li>
-                                    <li>Made iterative refinements based on testing feedback, addressing edge cases for sizing, long text handling, system messages, and screenreader announcement patterns</li>
+                                    <li>Released under a feature flag for internal testing in production environments</li>
+                                    <li>Collected feedback from real users and adjusted for long text, system messages, and user access levels</li>
+                                    <li>Improved sizing and screen reader text after real-world testing</li>
                                 </ol>
                             </div>
                         </div>
@@ -886,21 +900,22 @@
                                         <div class="result-column">
                                             <h5>Impact</h5>
                                             <ul>
-                                                <li>Messaging interface became significantly more organized with clear visual hierarchy and intuitive interaction patterns</li>
-                                                <li>Users gained efficient ways to quote messages, reply in context, and access conversation history, reducing confusion and improving productivity</li>
-                                                <li>Reduced administrative overhead by minimizing cleanup tasks and support requests related to messaging</li>
-                                                <li>Successfully aligned messaging experience with the upcoming application redesign, creating visual and interaction consistency</li>
-                                                <li>Improved accessibility compliance and better matched user expectations established by modern communication platforms</li>
+                                                <li>Organized, modern, and accessible messaging experience that users could navigate intuitively</li>
+                                                <li>Reduced admin cleanup and increased contextual awareness through threaded conversations</li>
+                                                <li>Seamlessly integrated into the upcoming app redesign with consistent visual and interaction patterns</li>
+                                                <li>Matched modern user expectations for communication features like quoting and replies</li>
+                                                <li>Improved accessibility compliance with proper ARIA support and screen reader optimization</li>
                                             </ul>
                                         </div>
                                         <div class="result-column">
                                             <h5>Tools & Methods</h5>
                                             <ul>
-                                                <li>Whiteboard ideation and collaborative sketching</li>
                                                 <li>Sketch for high-fidelity design and prototyping</li>
-                                                <li>AxeDev Tools and VoiceOver screenreader testing</li>
+                                                <li>Whiteboard ideation and pen & paper sketching</li>
+                                                <li>AxeDev Tools and macOS screen readers for accessibility testing</li>
                                                 <li>Vue/SASS for component implementation</li>
                                                 <li>Storybook for component documentation and design system</li>
+                                                <li>Feature flag testing with real users in production</li>
                                             </ul>
                                         </div>
                                     </div>
